@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Antoine Rouaze <antoine.rouaze@zenika.com>
+  Date: 3/28/13
+  Time: 2:30 PM
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Login</title>
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen"/>
+</h:head>
+
+<h:body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <h:outputText styleClass="brand" value="RMT"/>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="padding-top: 40px">
+        <div class="row-fluid">
+            <div class="span2">
+
+            </div>
+            <div class="span10">
+                <h:form styleClass="form-horizontal" style="margin: 30px">
+                    <fieldset>
+                        <legend>Login</legend>
+                        <div class="control-group">
+                            <h:outputLabel for="username" value="Username :" styleClass="control-label"/>
+
+                            <div class="controls">
+                                <h:inputText id="username" value="#{loginBean.username}"/>
+                                <h:message for="username" styleClass="help-inline"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <h:outputLabel for="password" value="Passord :" styleClass="control-label"/>
+
+                            <div class="controls">
+                                <h:inputText id="password" value="#{loginBean.password}"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <h:commandButton action="#{loginBean.authenticate}" value="Login" styleClass="btn"/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </h:form>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+</h:body>
+
+</html>

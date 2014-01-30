@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="manager_template.xhtml">
+    <ui:define name="title">
+        <h:outputText value="Add employee"/>
+    </ui:define>
+
+    <ui:define name="body">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                </div>
+                <div class="span10">
+                    <h:form styleClass="form-horizontal" style="margin: 30px">
+                        <fieldset>
+                            <legend><h:outputText value="#{msg['employee.add.form.legend']}"/></legend>
+                            <div class="control-group">
+                                <h:outputLabel for="username" value="#{msg['employee.add.form.username']}: "
+                                               styleClass="control-label"/>
+
+                                <div class="controls">
+                                    <h:inputText id="username" value="#{employeeBean.employee.username}"
+                                                 requiredMessage="#{msg['employee.add.form.error.required']}">
+                                        <f:validateLength minimum="3"/>
+                                    </h:inputText>
+                                    <h:message for="username" styleClass="help-inline"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <h:outputLabel for="firstname" value="#{msg['employee.add.form.firstName']} :"
+                                               styleClass="control-label"/>
+
+                                <div class="controls">
+                                    <h:inputText id="firstname" value="#{employeeBean.employee.firstname}"
+                                                 requiredMessage="#{msg['employee.add.form.error.required']}">
+                                        <f:validateLength minimum="3"/>
+                                    </h:inputText>
+                                    <h:message for="firstname" styleClass="help-inline"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <h:outputLabel for="lastname" value="#{msg['employee.add.form.lastName']} :"
+                                               styleClass="control-label"/>
+
+                                <div class="controls">
+                                    <h:inputText id="lastname" value="#{employeeBean.employee.lastname}"
+                                                 requiredMessage="#{msg['employee.add.form.error.required']}">
+                                        <f:validateLength minimum="3"/>
+                                    </h:inputText>
+                                    <h:message for="lastname" styleClass="help-inline"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <h:outputLabel for="password" value="#{msg['employee.add.form.password']}: "
+                                               styleClass="control-label"/>
+
+                                <div class="controls">
+                                    <h:inputSecret id="password" value="#{employeeBean.employee.password}"
+                                                   requiredMessage="#{msg['employee.add.form.error.required']}">
+                                        <f:validateLength minimum="3"/>
+                                    </h:inputSecret>
+                                    <h:message for="password" styleClass="help-inline"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <h:outputLabel for="email" value="#{msg['employee.add.form.email']}: "
+                                               styleClass="control-label"/>
+
+                                <div class="controls">
+                                    <h:inputText id="email" value="#{employeeBean.employee.email}"
+                                                 requiredMessage="#{msg['employee.add.form.error.required']}">
+                                        <f:validateRegex pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$"/>
+                                    </h:inputText>
+                                    <h:message for="email" styleClass="help-inline"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <h:outputLabel for="dateOfBirth" value="#{msg['employee.add.form.dateOfBirth']} :"
+                                               styleClass="control-label"/>
+
+                                <div class="controls">
+                                    <h:inputText id="dateOfBirth" value="#{employeeBean.employee.dateOfBirth}"
+                                                 requiredMessage="#{msg['employee.add.form.error.required']}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                    </h:inputText>
+                                    <h:message for="dateOfBirth" styleClass="help-inline"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <h:commandButton action="#{employeeBean.addEmployee}"
+                                                     value="#{msg['employee.add.form.submit']}"
+                                                     styleClass="btn"/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

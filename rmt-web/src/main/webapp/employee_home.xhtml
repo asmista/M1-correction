@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="employee_template.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="Employee"/>
+    </ui:define>
+
+    <ui:define name="body">
+        <h1 style="margin: 30px">Welcome Employee #{userBean.user.firstname} #{userBean.user.lastname}</h1>
+        <h:dataTable value="#{clientBean.clients}" var="client" style="margin: 50px" styleClass="table">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Name"/>
+                </f:facet>
+                <h:outputText value="#{client.name}"/>
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+
+</ui:composition>
